@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -19,8 +21,3 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-/*
-int main(int ac, char **av)
-{
-    printf("%d", ft_strlen(av[1]));
-}*/

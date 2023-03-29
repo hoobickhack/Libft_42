@@ -6,11 +6,11 @@
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:20:31 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/28 16:30:51 by isouaidi         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:11:39 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

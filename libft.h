@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 14:36:50 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/29 16:11:20 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/03/29 16:05:30 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/03/29 17:49:44 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	result;
+# include <unistd.h>
+# include <stdio.h>
+# include <string.h>
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
-	i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-		sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-	result = result * 10 + str[i] - 48;
-	i++;
-	}
-	return (result * sign);
-}
+int		ft_atoi(char *str);
+int		ft_strlen(char *str);
+void	ft_bzero(void *s, size_t n);
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
+void	*ft_memset(void *s, int c, size_t n);
+void 	*ft_memcpy(void *dest, const void *src, size_t n);
+#endif
