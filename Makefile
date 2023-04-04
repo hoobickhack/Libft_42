@@ -6,7 +6,7 @@
 #    By: isouaidi <isouaidi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 18:26:00 by isouaidi          #+#    #+#              #
-#    Updated: 2023/04/04 16:54:05 by isouaidi         ###   ########.fr        #
+#    Updated: 2023/04/04 18:49:25 by isouaidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = $ 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_memcmp.c ft_strlcat.c ft_strnstr.c ft_strdup.c \
 			ft_calloc.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 			ft_putnbr_fd.c ft_strjoin.c ft_substr.c ft_strtrim.c \
-			ft_itoa.c \
+			ft_itoa.c ft_striteri.c ft_strmapi.c \
 
 OBJS = ${SRCS:.c=.o}
 NAME = libft.a
