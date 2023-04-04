@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:05:32 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/31 17:03:05 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/03/31 14:26:02 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/03/31 16:30:43 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	char	*sr;
-	char	*ds;
+	int	i;
 
 	i = 0;
-	sr = (char *)src;
-	ds = (char *)dest;
-	if (!dest && !src)
-		return (0);
-	if (ds > sr)
+	while (s[i])
 	{
-		while (i < n)
-		{
-			ds[n - 1] = sr[n - 1];
-			n--;
-		}
+		if (s[i] == (char)c)
+			return ((char *) s + i);
+		i++;
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	if (s[i] == (char )c)
+		return ((char *)s + i);
+	return (0);
 }

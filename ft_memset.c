@@ -6,11 +6,11 @@
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:48:24 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/28 16:08:21 by isouaidi         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:03:08 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:05:32 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/31 17:03:05 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/04/03 15:23:31 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/04/03 15:55:19 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	char	*sr;
-	char	*ds;
+	size_t	j;
 
+	if (*s2 == '\0')
+		return ((char *)s1);
 	i = 0;
-	sr = (char *)src;
-	ds = (char *)dest;
-	if (!dest && !src)
-		return (0);
-	if (ds > sr)
+	while (s1[i] && i < n)
 	{
-		while (i < n)
-		{
-			ds[n - 1] = sr[n - 1];
-			n--;
-		}
+		j = 0;
+		while (s2[j] && s1[i + j] == s2[j] && i + j < n)
+			j++;
+		if (s2[j] == '\0')
+			return ((char *)s1 + i);
+		i++;
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	return (0);
 }
+/*int main()
+{
+char ss1[] = "hello my ily name is ilyes"; 
+
+char ss2[] = "ilyes";
+
+printf("%s",strnstr(ss1, ss2 , 30));
+}*/

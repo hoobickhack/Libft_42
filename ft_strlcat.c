@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:05:32 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/31 17:03:05 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/04/03 13:17:21 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/04/03 14:51:53 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
 	size_t	i;
-	char	*sr;
-	char	*ds;
+	size_t	j;
+	size_t	srclen;
 
+	j = ft_strlen(dst);
+	srclen = ft_strlen(src);
 	i = 0;
-	sr = (char *)src;
-	ds = (char *)dest;
-	if (!dest && !src)
-		return (0);
-	if (ds > sr)
+	if (n <= j)
 	{
-		while (i < n)
-		{
-			ds[n - 1] = sr[n - 1];
-			n--;
-		}
+		return (n + srclen);
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+	while (src[i] && j + 1 < n)
+	{
+		dst[j] = src[i];
+		i++;
+		j++;
+	}
+	dst[j] = '\0';
+	return (ft_strlen(src + i) + j);
 }

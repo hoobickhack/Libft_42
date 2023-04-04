@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@sudent.42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:05:32 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/03/31 17:03:05 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/04/03 16:51:42 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/04/03 16:59:49 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-	char	*sr;
-	char	*ds;
+	int	i;
 
 	i = 0;
-	sr = (char *)src;
-	ds = (char *)dest;
-	if (!dest && !src)
-		return (0);
-	if (ds > sr)
+	while (s[i])
 	{
-		while (i < n)
-		{
-			ds[n - 1] = sr[n - 1];
-			n--;
-		}
+		write(fd, &s[i], 1);
+		i++;
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (dest);
 }
