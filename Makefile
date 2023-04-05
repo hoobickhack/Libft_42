@@ -6,7 +6,7 @@
 #    By: isouaidi <isouaidi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 18:26:00 by isouaidi          #+#    #+#              #
-#    Updated: 2023/04/05 15:59:34 by isouaidi         ###   ########.fr        #
+#    Updated: 2023/04/05 19:24:28 by isouaidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,26 +20,34 @@ SRCS = $ 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_putnbr_fd.c ft_strjoin.c ft_substr.c ft_strtrim.c \
 			ft_itoa.c ft_striteri.c ft_strmapi.c ft_split.c \
 
+SRCS_B = $ ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+			ft_lstlast.c \
+
 OBJS = ${SRCS:.c=.o}
+OBJS_B = ${SRCS_B:.c=.o}
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
+AR = ar rcs 
+RM = rm -rf
 
 all : ${NAME}
+
+${NAME}:${OBJS}
+	${AR} ${NAME} ${OBJS}
+	
+bonus: ${OBJS_B}
+			${AR} ${NAME} ${OBJS_B}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:${OBJS}
-	ar rcs ${NAME} ${OBJS}
-
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_B}
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
