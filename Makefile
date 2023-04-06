@@ -6,7 +6,7 @@
 #    By: isouaidi <isouaidi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 18:26:00 by isouaidi          #+#    #+#              #
-#    Updated: 2023/04/05 19:24:28 by isouaidi         ###   ########.fr        #
+#    Updated: 2023/04/06 18:18:12 by isouaidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = $ 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 			ft_itoa.c ft_striteri.c ft_strmapi.c ft_split.c \
 
 SRCS_B = $ ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-			ft_lstlast.c \
+			ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
+			ft_lstiter.c \
 
 OBJS = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
