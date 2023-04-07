@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isouaidi <isouaidi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 15:13:40 by isouaidi          #+#    #+#             */
-/*   Updated: 2023/04/07 14:45:17 by isouaidi         ###   ########.fr       */
+/*   Created: 2023/04/06 19:29:09 by isouaidi          #+#    #+#             */
+/*   Updated: 2023/04/07 16:16:51 by isouaidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int	i;
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
-	i = ft_strlen(s);
-	while (i >= 0)
+{
+	t_list	*tmp;
+	t_list	*nvlist;
+
+	if (!lst)
+		return (0);
+	nvlist = 0;
+	while (lst)
 	{
-		if (s[i] == (char)c)
-			return ((char *) s + i);
-		i--;
+		tmp = ft_lstnew(f(lst ->content));
+		if (!tmp)
+		{
+			ft_lstclear (&tmp, (*del));
+			return (0);
+		}
+		ft_lstadd_back(&nvlist, tmp);
+		lst = lst ->next;
 	}
-	return (0);
+	return (nvlist);
 }
-/*return a partir de la derniere occurence toute la suite de la chaine de 
-caractere*/
